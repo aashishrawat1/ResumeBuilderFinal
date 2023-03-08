@@ -1,0 +1,20 @@
+.container{
+    padding: 30px;
+ text-align: center;
+ background-color:lightskyblue
+}
+.img{
+    width: 10px;
+}
+.heading{
+ color: black;
+ 
+ font-size:x-large
+}
+.high{
+ color:blue;
+}
+.button{
+    margin: 13px;
+}
+

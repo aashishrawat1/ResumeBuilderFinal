@@ -1,0 +1,15 @@
+.container{
+    margin: 3%;
+}
+.col{
+    color: blue;
+}
+.resume{
+    text-align: center;
+}
+.btn1{
+   text-align: right;
+}
+.btn2{
+    text-align: left;
+}

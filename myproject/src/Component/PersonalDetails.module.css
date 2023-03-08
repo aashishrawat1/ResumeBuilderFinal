@@ -1,0 +1,16 @@
+.container{
+    padding: 40px;
+}
+.col{
+    color: blue;
+}
+.resume{
+    text-align: center;
+}
+.button1{
+    text-align: right;
+}
+.button2{
+    text-align: left;
+    width: 40px;
+}
