@@ -16,7 +16,10 @@ import Hobbies from './Component/Hobbies';
 import Resume from './Component/Resume';
 import ResumeOne from './ResumeTemplate/ResumeOne';
 import ResumeTest from './Component/ResumeTest';
-
+import AdminLogin from './Component/AdminLogin';
+import Adminlistcomponent from './Component/Adminlistcomponet';
+import ListFeedback from './Component/ListFeedback';
+import UserListComponent from './Component/UserListComponent';
 function App() {
   return (
          <div>
@@ -31,6 +34,11 @@ function App() {
           <Route path='/skill' element={<Skill />} />
           <Route path='/hobbies' element={<Hobbies />} />
           <Route path='/resume' element={<ResumeTest /> } />
+          <Route path='/feedback' element={<Final/>} />
+          <Route path='/admin' element={<AdminLogin />} />
+          <Route path='/admincomponent' element={<Adminlistcomponent />} />
+          <Route path='/feedbacklist' element={<ListFeedback />} />
+          <Route path='/userlist' element={<UserListComponent />} />
           </Routes>
         </BrowserRouter>
         </div>

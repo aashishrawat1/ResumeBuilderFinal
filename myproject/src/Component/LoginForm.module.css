@@ -12,3 +12,10 @@
 .log{
    text-align: left;
 }
+.colr{
+   text-decoration: none;
+  color: black;
+}
+.container{
+   margin: 1%;
+}

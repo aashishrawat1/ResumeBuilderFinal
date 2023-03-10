@@ -3,12 +3,13 @@ import { useState } from "react"
 import axios from "axios";
 import base_url from '../Api/BootApi'
 import Menu from "./Menu";
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate,useLocation } from 'react-router-dom'
 
 function Education() {
-    
      const [education,setEducation] = useState({});
      const navigate=useNavigate();
+     const location = useLocation();
+     const userId = localStorage.getItem('userId');
      const handleform =(e)=>
      {
         console.log(education);
@@ -17,10 +18,10 @@ function Education() {
      }
      const postDataServer = (data)=>
      {
-        axios.post(`${base_url}/education/2`,data).then(
+        axios.post(`${base_url}/education/${userId}`,data).then(
           (response)=>{
             alert("Education data added successfully")  
-            navigate("/experience")
+            navigate("/experience",{ state: { data:userId } })
             console.log(response)
           },
           (error)=>
@@ -29,13 +30,13 @@ function Education() {
           }
         )
      }
-
      return (
           <>
     <Menu/>
           <div className={style.container}>
                <div>
                     <div>
+                         <br/>
                          <h1 className={style.resume}><span className={style.col}>Resume</span>Builder</h1>
                          <h2 className={style.log}><span className={style.col}>Education</span> Details</h2>
                     </div>
@@ -98,12 +99,6 @@ function Education() {
                         }} /><br />
                          <button class="btn btn-success">Add Education</button>
                               </form>
-                         </div>
-                         <div className={style.btn1}>
-                              <button id="btn1" type="button" className="btn btn-danger">Next:</button>
-                         </div>
-                         <div className={style.btn2}>
-                              <button id="btn2" className="btn btn-primary" type="button">Back</button>
                          </div>
                     </div>
                </div>

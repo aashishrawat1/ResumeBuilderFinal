@@ -4,14 +4,17 @@ import axios from 'axios';
 import base_url from '../Api/BootApi';
 import img from '../image/photo.png'
 import ReactToPrint from 'react-to-print';
+import { NavLink, useNavigate,useLocation } from 'react-router-dom'
 function ResumeTest() {
     const [personal, setPersonal] = useState({});
     const [education, setEducation] = useState({});
     const [experience, setExperience] = useState([]);
     const [skills, setSkill] = useState([]);
     const [hobby, setHobby] = useState([]);
+    const location = useLocation();
+    const userId = location.state && location.state.data
     useEffect(() => {
-        axios.get("http://localhost:7071/resume/2")
+        axios.get(`${base_url}/resume/${userId}`)
             .then((response) => {
                 setPersonal(response.data.personaldetails);
                 setEducation(response.data.educationlist);

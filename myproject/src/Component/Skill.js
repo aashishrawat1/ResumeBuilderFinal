@@ -5,10 +5,12 @@ import { useState } from "react"
 import axios from "axios";
 import base_url from '../Api/BootApi'
 import Menu from "./Menu";
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 function Skill() {
     const [skill,setSkill] = useState({});
     const navigate=useNavigate();
+    const location = useLocation();
+    const userId = localStorage.getItem('userId');
     const handleform =(e)=>
     {
        console.log(skill);
@@ -17,10 +19,10 @@ function Skill() {
     }
     const postDataServer = (data)=>
     {
-       axios.post(`${base_url}/skill/2`,data).then(
+       axios.post(`${base_url}/skill/${userId}`,data).then(
          (response)=>{
           alert("skill data added successfully")  
-            navigate("/hobbies")
+            navigate("/hobbies",{state:{data:userId}})
            console.log(response)
          },
          (error)=>
@@ -33,6 +35,7 @@ function Skill() {
       <>
     <Menu/>
         <div className={style.container}>
+          <br/>
             <h1 className={style.resume}><span className={style.col}>Resume </span>Builder</h1>
             <form onSubmit={handleform}>
             <div className="row">

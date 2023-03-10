@@ -3,10 +3,12 @@ import { useState } from "react"
 import axios from "axios";
 import base_url from '../Api/BootApi'
 import Menu from "./Menu";
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 function WorkHistory() {
     const [history,setHistory] = useState({});
     const navigate=useNavigate();
+    const location =useLocation();
+    const userId = localStorage.getItem('userId');
      const handleform =(e)=>
      {
         console.log(history);
@@ -15,10 +17,10 @@ function WorkHistory() {
      }
      const postDataServer = (data)=>
      {
-        axios.post(`${base_url}/experience/2`,data).then(
+        axios.post(`${base_url}/experience/${userId}`,data).then(
           (response)=>{
             alert("Work history data added successfully")  
-            navigate("/skill")
+            navigate("/skill",{state :{data:userId}})
             console.log(response)
           },
           (error)=>
@@ -76,7 +78,7 @@ function WorkHistory() {
                         }}/><br /><br />
                     </div>
                 </div>
-                <button>ADD</button>
+                <button class="btn btn-success">Add WorkHistory</button>
             </form>
         </div>
         </>

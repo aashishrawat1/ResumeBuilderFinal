@@ -34,6 +34,4 @@ public class FeedbackController {
 		System.out.println("feedback contrller"+detail);
 		return feedbackService.saveFeedback(detail, userId);
 	}
-	
-	
 }

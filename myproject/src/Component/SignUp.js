@@ -31,12 +31,13 @@ function SignUp() {
     };
     return (
         <div className={style.container}>
+
             <button className='btn btn-primary'>
-                <NavLink to="/login">Login In</NavLink>
+                <NavLink to="/login" className={style.colr}>Login In</NavLink>
             </button>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             <button className='btn btn-primary'>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" className={style.colr}>Home</NavLink>
             </button>
             <h1 className={style.resume}><span className={style.col}>Resume </span>Builder</h1>
             <h2 className={style.log}>Create a new <span className={style.col}>Account</span></h2>
@@ -85,7 +86,7 @@ function SignUp() {
                             }} /><br />
                         </div>
                         <div>
-                            <button onClick={handleClick} class="btn btn-success">Show Alert</button>
+                            <button onClick={handleClick} class="btn btn-success">Sign up</button>
                             {showAlert && (
                                 <div className="alert alert-success" role="alert">
                                     SignUp Successfully!!!

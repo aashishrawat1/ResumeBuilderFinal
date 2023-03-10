@@ -5,11 +5,14 @@ import { useState } from "react"
 import axios from "axios";
 import base_url from '../Api/BootApi'
 import Menu from "./Menu";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate,useLocation} from 'react-router-dom'
 function Hobbies()
 {
     const [hobby,setHobby] = useState({});
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const userId = localStorage.getItem('userId');
     const handleform =(e)=>
     {
        console.log(hobby);
@@ -18,8 +21,10 @@ function Hobbies()
     }
     const postDataServer = (data)=>
     {
-       axios.post(`${base_url}/hobbies/2`,data).then(
+       axios.post(`${base_url}/hobbies/${userId}`,data).then(
          (response)=>{
+          alert("Hoobies data added successfully!!!")
+          navigate("/feedback",{state : {data:userId}})
            console.log(response)
          },
          (error)=>
@@ -32,6 +37,7 @@ function Hobbies()
   <>
   <Menu/>
     <div className={style.container}>
+      <br/>
     <h1 className={style.resume}><span className={style.col}>Resume </span>Builder</h1>
     <h2 className={style.log}>What <span className={style.col}>Hobbies</span> would you like to Add?</h2><br/> 
    
@@ -47,9 +53,7 @@ function Hobbies()
 
 <div className="col-md-6">
 <img src={img} width={500} height={500}/>
-<button className='btn btn-primary'>
-      <NavLink to="/resume">Generate Resume</NavLink>
-    </button>
+
 </div>
 </div>
 </div>

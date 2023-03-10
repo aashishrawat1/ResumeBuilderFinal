@@ -7,8 +7,10 @@ import Menu from "./Menu"
 function LoginForm() {
 
   const [user, setUser] = useState()
+  const [userId,setUserId]=useState();
   const navigate=useNavigate();
 
+ 
   const handleform = (e) => {
     console.log(user);
     postDataServer(user)
@@ -17,9 +19,13 @@ function LoginForm() {
   const postDataServer = (data) => {
     axios.post("http://localhost:7071/users/login", data).then(
       (response) => {
+        setUserId(response.data.id);
+        console.log(response.data.id)
+        localStorage.setItem('userId',response.data.id);
         alert("Login success")
-        navigate("/personal");
+        navigate(`/personal`);
         console.log(response)
+
       },
       (error) => {
         alert("wrong id password please try again")
@@ -31,8 +37,9 @@ function LoginForm() {
   return (
     <>
       <div className="container">
+        <br/>
         <button className='btn btn-primary'>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" className={style.colr}>Home</NavLink>
         </button>
         <h1 className={style.resume}><span className={style.col}>Resume</span>Builder</h1>
         <h2 className={style.log}>Log in to your <span className={style.col}>Account</span></h2>

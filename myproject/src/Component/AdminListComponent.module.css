@@ -1,15 +1,16 @@
+.container{
+    padding: 30px;
+ text-align: center;
+ background-color:lightskyblue
+}
 .col{
     color: blue;
 }
 .resume{
     text-align: center;
 }
-.container{
-    padding: 40px;
-    background-color:rgb(92, 187, 219)
-}
+
 .colr{
-    text-align: right;
     color: aliceblue;
     margin: 10px;
     font-size: medium;

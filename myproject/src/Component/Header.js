@@ -2,20 +2,21 @@ import React from 'react'
 import style from "./Header.module.css"
 import img from "../image/main.svg"
 import { NavLink } from 'react-router-dom'
+import MainHeader from './MainHeader'
 function Header()
 {
  
  return(
    <div className={style.container}>
- 
+    <MainHeader/>
     <div className={style.button} align="right">
       
-    <button className='btn btn-primary'>
-      <NavLink to="/login">Login In</NavLink>
+    <button class='btn btn-primary'>
+      <NavLink to="/login" className={style.colr}>Log In</NavLink>
     </button>
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    <button className='btn btn-primary'>
-    <NavLink to="/signup">Sign Up</NavLink>
+    <button class='btn btn-primary'>
+    <NavLink to="/signup" className={style.colr}>Sign Up</NavLink>
     </button>
     </div>
     <p className={style.heading}>Build a <span className={style.high}>Resume</span></p>

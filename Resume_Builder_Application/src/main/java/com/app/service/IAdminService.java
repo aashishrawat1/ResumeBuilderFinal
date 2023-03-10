@@ -10,4 +10,5 @@ public interface IAdminService {
 public List<User> getAllUser();
 public List<Feedback> getAllFeedback();
 public List<Admin> getAllAdmin();
+public Admin authenticateAdmin(String email,String password);
 }
